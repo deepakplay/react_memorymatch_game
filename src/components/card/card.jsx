@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import './card.scss';
-import front from '../../assets/cover.png';
-import back from '../../assets/helmet-1.png';
+import { CARD_BACK as back } from '../../data/carddata';
 
-export default function Card() {
-    const [flipped, setFlipped] = useState(false);
+export default function Card({ front, isflipped, handleClick, id }) {
+
     return (
-        <div className='card' onClick={()=> setFlipped(!flipped)} >
-            <div className={`card-image-container${flipped?' flipped':''}`}>
+        <div className='card' onClick={() => handleClick(id)} >            
+            <div className={`card-image-container${isflipped ? ' flipped' : ''}`}>
                 <div className="card-image front" style={{ background: `url(${front})` }}></div>
                 <div className="card-image back" style={{ background: `url(${back})` }}></div>
             </div>
