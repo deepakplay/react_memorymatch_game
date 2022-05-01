@@ -13,12 +13,9 @@ export default function Cardlist() {
         if (turnCount === 2) {
             const matchedCardList = cardList.filter((card) => card.isflipped && !card.isOpened);
 
-            let isMatch = true;
-            for (let i = 1; i < matchedCardList.length; i++) {
-                if (matchedCardList[0].front !== matchedCardList[i].front) {
-                    isMatch = false;
-                    break;
-                }
+            let isMatch = false;
+            if(matchedCardList.length===2){
+                isMatch = matchedCardList[0].front === matchedCardList[1].front;
             }
 
             if(isMatch){
@@ -41,14 +38,14 @@ export default function Cardlist() {
 
     const handleClick = (id) => {
         if (turnCount >= 2) return;
-        if(cardList.find((card)=>card.id===id).isOpened) return;        
+        if(cardList.find((card)=>card.id===id).isOpened) return;
+        setTurnCount((preCount) => preCount + 1);
 
         const newCardList = cardList.map((card) => {
             return (card.id === id) ? { ...card, isflipped: true } : card
         });
         setCardList(newCardList);
-        setTurns((preTurns) => preTurns + 1);
-        setTurnCount((preCount) => preCount + 1);
+        setTurns((preTurns) => preTurns + 1);        
     };
 
     return (
