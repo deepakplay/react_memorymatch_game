@@ -1,6 +1,7 @@
 .card {
-    height: 200px;
-    border-radius: 5px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
 
     .card-image-container {
         width: 100%;
@@ -8,11 +9,7 @@
         position: relative;
 
         transform-style: preserve-3d;
-        transition: all 0.3s ease;
-
-        &:hover {
-            transform: rotateY(180deg);
-        }
+        transition: all .5s ease;        
 
         .card-image {
             width: 100%;
@@ -22,10 +19,16 @@
             top: 0;
             cursor: pointer;
             backface-visibility: hidden;
+            background-repeat: no-repeat !important;
+            background-size: cover  !important;
             
             &.back{
                 transform: rotateY(180deg);
             }
+        }
+
+        &.flipped{
+            transform: rotateY(180deg);
         }
     }
 }
