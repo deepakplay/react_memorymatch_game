@@ -10,7 +10,7 @@ export default function Cardlist() {
 
     useEffect(() => {
         if(!cardList) return;
-        if (turnCount == 2) {
+        if (turnCount === 2) {
             const matchedCardList = cardList.filter((card) => card.isflipped && !card.isOpened);
 
             let isMatch = true;

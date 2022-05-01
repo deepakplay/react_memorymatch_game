@@ -29,7 +29,7 @@ export const CardListProvider = ({ children }) => {
         });
         setCardList(cardList.sort(() => Math.random() - 0.5));
         setTurns(0);
-    }, [CARD_LIST]);
+    },[]);
 
     useEffect(() => {
         newgame();
