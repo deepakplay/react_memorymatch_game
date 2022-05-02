@@ -19,7 +19,7 @@ export const CardListProvider = ({ children }) => {
 
     const newgame = useCallback(() => {
         let init_id = 1;
-        let cardList = [...CARD_LIST, ...CARD_LIST, ...CARD_LIST, ...CARD_LIST].map((data) => {
+        let cardList = [...CARD_LIST, ...CARD_LIST].map((data) => {
             return {
                 id: init_id++,
                 front: data,
