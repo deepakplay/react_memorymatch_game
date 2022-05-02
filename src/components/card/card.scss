@@ -2,6 +2,7 @@
     height: 150px;
     border-radius: 8px;
     overflow: hidden;
+    
 
     .card-image-container {
         width: 100%;
@@ -10,6 +11,7 @@
         transform-style: preserve-3d;
         transform: rotateY(180deg);
         transition: all .5s ease;
+        
 
         .card-image {
             width: 100%;
@@ -33,7 +35,7 @@
 
         &.opened {
             box-shadow: 0 0 0 2px rgba(#000, .05) inset;
-            animation: selected .8s 0s ease 1;
+            animation: .8s 0s ease 1;
             animation-fill-mode: both;
             opacity: .2;
         }
