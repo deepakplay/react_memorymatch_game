@@ -2,10 +2,8 @@
     height: 140px;
     border-radius: 8px;
     overflow: hidden;
-    animation: card_animation 0.3s ease;
-    transform: scale(0, 0);
-    animation-fill-mode: forwards;
-    
+    animation: card_animation 0.3s ease;    
+    animation-fill-mode: forwards;    
 
     .card-image-container {
         width: 100%;
@@ -46,6 +44,9 @@
 }
 
 @keyframes card_animation {
+    0%{
+        transform: scale(0, 0);
+    }
     100% {
         transform: scale(1,1); 
     }
