@@ -39,7 +39,7 @@ export const CardListProvider = ({ children }) => {
         setCardList([]);
         setTimeout(() => {
             setCardList(newCardList.sort(() => Math.random() - 0.5));
-        }, 300);
+        }, 100);
         setTurns(0);
     }, [gameLevel]);
 
