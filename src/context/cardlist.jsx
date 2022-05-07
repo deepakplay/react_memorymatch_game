@@ -27,7 +27,10 @@ export const CardListProvider = ({ children }) => {
                 isOpened: false,
             }
         });
-        setCardList(cardList.sort(() => Math.random() - 0.5));
+        setCardList([]);
+        setTimeout(()=>{
+            setCardList(cardList.sort(() => Math.random() - 0.5));
+        },300);        
         setTurns(0);
     },[]);
 
