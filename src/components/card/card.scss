@@ -2,7 +2,7 @@
     height: 140px;
     border-radius: 8px;
     overflow: hidden;
-    animation: cart_animation 0.3s ease;
+    animation: card_animation 0.3s ease;
     transform: scale(0, 0);
     animation-fill-mode: forwards;
     
@@ -45,7 +45,7 @@
     }
 }
 
-@keyframes cart_animation {
+@keyframes card_animation {
     100% {
         transform: scale(1,1); 
     }
