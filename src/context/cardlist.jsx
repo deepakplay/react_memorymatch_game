@@ -6,7 +6,9 @@ const CardlistContext = createContext({
     newgame: () => { },
     setCardList: () => { },
     turns: 0,
-    setTurns: () => { }
+    setTurns: () => { },
+    gameLevel:0,
+    setGameLevel: 1
 });
 
 export const useCardListContext = () => {
@@ -16,10 +18,17 @@ export const useCardListContext = () => {
 export const CardListProvider = ({ children }) => {
     const [cardList, setCardList] = useState([]);
     const [turns, setTurns] = useState(0);
+    const [gameLevel, setGameLevel] = useState(1);
+    
 
     const newgame = useCallback(() => {
         let init_id = 1;
-        let cardList = [...CARD_LIST, ...CARD_LIST].map((data) => {
+        let newCardList = [];
+
+        for (let i = 0; i < gameLevel; i++)
+            newCardList = [...newCardList, ...CARD_LIST, ...CARD_LIST];
+
+            newCardList = newCardList.map((data) => {
             return {
                 id: init_id++,
                 front: data,
@@ -28,11 +37,11 @@ export const CardListProvider = ({ children }) => {
             }
         });
         setCardList([]);
-        setTimeout(()=>{
-            setCardList(cardList.sort(() => Math.random() - 0.5));
-        },300);        
+        setTimeout(() => {
+            setCardList(newCardList.sort(() => Math.random() - 0.5));
+        }, 300);
         setTurns(0);
-    },[]);
+    }, [gameLevel]);
 
     useEffect(() => {
         newgame();
@@ -43,7 +52,9 @@ export const CardListProvider = ({ children }) => {
         newgame,
         setCardList,
         turns,
-        setTurns
+        setTurns,
+        gameLevel,
+        setGameLevel
     }
 
     return (
